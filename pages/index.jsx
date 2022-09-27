@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import matter from "gray-matter";
 import Post from "../components/Post";
 import Link from "next/link";
+import {sortByDate} from '../utils' 
 
 export default function Home({ posts }) {
   return (
@@ -44,7 +45,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts,
+      posts: posts.sort(sortByDate),
     },
   };
 }
